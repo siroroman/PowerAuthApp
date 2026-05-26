@@ -29,7 +29,10 @@ struct InputField: View {
             HStack(spacing: 0) {
                 inputField
                 if style == .secure {
-                    Button(action: { isRevealed.toggle() }) {
+                    Button(action: {
+                        isRevealed.toggle()
+                        isFocused = true
+                    }) {
                         Image(systemName: isRevealed ? "eye.slash" : "eye")
                             .font(.system(size: 16))
                             .foregroundColor(Colors.secondaryLabel)
