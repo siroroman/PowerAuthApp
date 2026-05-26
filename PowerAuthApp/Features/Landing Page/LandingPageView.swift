@@ -28,14 +28,32 @@ struct LandingPageView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Start activation", action: viewModel.onStart)
+                PrimaryButton(title: "Start activation", action: viewModel.startTapped)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }
+
+            if viewModel.isLoading {
+                LoadingHUD()
+            }
+
+            if let error = viewModel.error {
+                ErrorAlert(
+                    title: "Setup failed",
+                    message: error.localizedDescription,
+                    onPrimary: { viewModel.error = nil },
+                    onDismiss: { viewModel.error = nil }
+                )
+            }
+        }
+        .navigationDestination(isPresented: $viewModel.navigateToActivation) {
+            ActivationView(viewModel: ActivationViewModel())
         }
     }
 }
 
 #Preview {
-    LandingPageView(viewModel: LandingPageViewModel())
+    NavigationStack {
+        LandingPageView(viewModel: LandingPageViewModel())
+    }
 }
