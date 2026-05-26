@@ -3,7 +3,7 @@ import SwiftUI
 struct ErrorAlert: View {
     let title: String
     let message: String
-    var primaryLabel: String = "Try again"
+    var primaryLabel: String = String.localized(.errorActionTryAgain)
     var onPrimary: (() -> Void)? = nil
     var onDismiss: () -> Void = {}
 
@@ -46,7 +46,7 @@ struct ErrorAlert: View {
                     }
 
                     Button(action: onDismiss) {
-                        Text("Close")
+                        Text(.errorActionClose)
                             .font(.system(size: 14))
                             .tracking(0.2)
                             .foregroundColor(Colors.secondaryLabel)
