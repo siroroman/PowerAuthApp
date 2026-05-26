@@ -46,39 +46,13 @@ struct PasswordView: View {
         let hasNumberOrSymbol = password.contains(where: { $0.isNumber || $0.isPunctuation || $0.isSymbol })
 
         return VStack(alignment: .leading, spacing: 12) {
-            PasswordRule(met: hasMinLength, label: "At least 8 characters")
-            PasswordRule(met: hasUppercase, label: "One uppercase letter")
-            PasswordRule(met: hasNumberOrSymbol, label: "One number or symbol")
+            PasswordRuleView(met: hasMinLength, label: "At least 8 characters")
+            PasswordRuleView(met: hasUppercase, label: "One uppercase letter")
+            PasswordRuleView(met: hasNumberOrSymbol, label: "One number or symbol")
         }
     }
 }
 
-private struct PasswordRule: View {
-    let met: Bool
-    let label: String
-
-    var body: some View {
-        HStack(spacing: 10) {
-            ZStack {
-                Circle()
-                    .fill(met ? Colors.label : Color.clear)
-                    .frame(width: 16, height: 16)
-                if met {
-                    Image(systemName: "checkmark")
-                        .font(.system(size: 8, weight: .bold))
-                        .foregroundColor(.white)
-                } else {
-                    Circle()
-                        .strokeBorder(Colors.separator, lineWidth: 1)
-                        .frame(width: 16, height: 16)
-                }
-            }
-            Text(label)
-                .font(.system(size: 13))
-                .foregroundColor(met ? Colors.label : Colors.secondaryLabel)
-        }
-    }
-}
 
 #Preview {
     PasswordView()
