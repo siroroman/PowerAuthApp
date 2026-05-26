@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9086622E2FC5D729000C83A8 /* PowerAuth2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9086622D2FC5D729000C83A8 /* PowerAuth2 */; };
+		908662302FC5D8C5000C83A8 /* PowerAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9086622F2FC5D8C5000C83A8 /* PowerAuthCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		908661F82FC5B964000C83A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9086622E2FC5D729000C83A8 /* PowerAuth2 in Frameworks */,
+				908662302FC5D8C5000C83A8 /* PowerAuthCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,7 @@
 				908661EC2FC5B963000C83A8 /* PowerAuthApp */,
 				908661FA2FC5B964000C83A8 /* PowerAuthAppTests */,
 				908662042FC5B964000C83A8 /* PowerAuthAppUITests */,
+				9086622C2FC5D729000C83A8 /* Frameworks */,
 				908661EB2FC5B963000C83A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +98,13 @@
 				908662012FC5B964000C83A8 /* PowerAuthAppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9086622C2FC5D729000C83A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +127,8 @@
 			);
 			name = PowerAuthApp;
 			packageProductDependencies = (
+				9086622D2FC5D729000C83A8 /* PowerAuth2 */,
+				9086622F2FC5D8C5000C83A8 /* PowerAuthCore */,
 			);
 			productName = PowerAuthApp;
 			productReference = 908661EA2FC5B963000C83A8 /* PowerAuthApp.app */;
@@ -592,6 +609,19 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9086622D2FC5D729000C83A8 /* PowerAuth2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 908662242FC5CE7F000C83A8 /* XCRemoteSwiftPackageReference "powerauth-mobile-sdk-spm" */;
+			productName = PowerAuth2;
+		};
+		9086622F2FC5D8C5000C83A8 /* PowerAuthCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 908662242FC5CE7F000C83A8 /* XCRemoteSwiftPackageReference "powerauth-mobile-sdk-spm" */;
+			productName = PowerAuthCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 908661E22FC5B963000C83A8 /* Project object */;
 }

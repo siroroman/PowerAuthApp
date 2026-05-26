@@ -1,5 +1,7 @@
+import Observation
 import PowerAuth2
 
+@Observable
 final class AuthService: AuthServiceProtocol {
 
     private var powerAuthSDK: PowerAuthSDK?
@@ -23,7 +25,7 @@ final class AuthService: AuthServiceProtocol {
     func createActivation(with code: String) async throws -> String {
         guard let sdk = powerAuthSDK else { throw AuthError.notConfigured }
         return try await withCheckedThrowingContinuation { continuation in
-            sdk.createActivationWithName("PowerAuthApp", activationCode: code) { result, error in
+            sdk.createActivation(withName: "PowerAuthApp", activationCode: code) { result, error in
                 if let error {
                     continuation.resume(throwing: AuthError.activationFailed(error.localizedDescription))
                 } else if let fingerprint = result?.activationFingerprint {
