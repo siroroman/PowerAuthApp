@@ -30,10 +30,25 @@ struct PasswordView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Confirm", isDisabled: !viewModel.isValid, action: viewModel.onConfirm)
+                PrimaryButton(title: "Confirm", isDisabled: !viewModel.isValid, action: viewModel.confirmTapped)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }
+
+            if viewModel.isLoading {
+                LoadingHUD()
+            }
+
+            if let error = viewModel.error {
+                ErrorAlert(
+                    title: "Activation failed",
+                    message: error.localizedDescription,
+                    onDismiss: { viewModel.error = nil }
+                )
+            }
+        }
+        .navigationDestination(isPresented: $viewModel.navigateToResult) {
+            ResultView(viewModel: ResultViewModel())
         }
         .navigationBackDisabled()
     }
