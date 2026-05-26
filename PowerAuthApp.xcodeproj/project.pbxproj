@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9086622E2FC5D729000C83A8 /* PowerAuth2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9086622D2FC5D729000C83A8 /* PowerAuth2 */; };
 		908662302FC5D8C5000C83A8 /* PowerAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9086622F2FC5D8C5000C83A8 /* PowerAuthCore */; };
+		908662312FC5D900000C83A8 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 908662332FC5D900000C83A8 /* Dependencies */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			files = (
 				9086622E2FC5D729000C83A8 /* PowerAuth2 in Frameworks */,
 				908662302FC5D8C5000C83A8 /* PowerAuthCore in Frameworks */,
+				908662312FC5D900000C83A8 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +117,7 @@
 			packageProductDependencies = (
 				9086622D2FC5D729000C83A8 /* PowerAuth2 */,
 				9086622F2FC5D8C5000C83A8 /* PowerAuthCore */,
+				908662332FC5D900000C83A8 /* Dependencies */,
 			);
 			productName = PowerAuthApp;
 			productReference = 908661EA2FC5B963000C83A8 /* PowerAuthApp.app */;
@@ -197,6 +200,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				908662242FC5CE7F000C83A8 /* XCRemoteSwiftPackageReference "powerauth-mobile-sdk-spm" */,
+				908662322FC5D900000C83A8 /* XCRemoteSwiftPackageReference "swift-dependencies" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 908661EB2FC5B963000C83A8 /* Products */;
@@ -591,6 +595,14 @@
 				minimumVersion = 1.9.6;
 			};
 		};
+		908662322FC5D900000C83A8 /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -603,6 +615,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 908662242FC5CE7F000C83A8 /* XCRemoteSwiftPackageReference "powerauth-mobile-sdk-spm" */;
 			productName = PowerAuthCore;
+		};
+		908662332FC5D900000C83A8 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 908662322FC5D900000C83A8 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = Dependencies;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
