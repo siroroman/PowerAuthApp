@@ -42,29 +42,6 @@ PowerAuthApp
 └── Localization/          – AppStringKey enum + Localizable.xcstrings (EN + CS)
 ```
 
-### Key concepts
-
-**MVVM with `@Observable`**
-Each screen owns a view model annotated with `@Observable @MainActor`. Views bind to the model via `@Bindable`. No view ever calls the SDK directly — all side effects go through the service layer.
-
-**`AuthServiceProtocol`**
-The protocol decouples the views and view models from the concrete `AuthService`. The five operations — `isConfigured`, `hasValidActivation`, `configure()`, `createActivation(with:)`, `persistActivation(with:)`, `fetchActivationStatus()` — map one-to-one to the SDK chapters in the assignment.
-
-**Dependency injection via [swift-dependencies](https://github.com/pointfreeco/swift-dependencies)**
-`AuthService` conforms to `DependencyKey` and is registered as `DependencyValues.authService`. View models resolve it with `@Dependency(\.authService)`. This keeps the service a singleton without passing it down the view hierarchy manually.
-
-**Async/await bridging**
-The PowerAuth SDK uses completion callbacks. Both `createActivation` and `fetchActivationStatus` are bridged to async/await with `withCheckedThrowingContinuation`, so the calling view model can use structured concurrency with a clean `do/try/await` chain.
-
-**`pendingCommit` retry loop**
-After `persistActivation` the server may not have propagated the state change yet. `PasswordViewModel` polls `fetchActivationStatus()` up to three times with a two-second pause between attempts before surfacing an error, avoiding spurious failures on slow networks.
-
-**`@MainActor` isolation**
-`AuthService` is `@MainActor`-isolated, matching the isolation of the view models that call it. This eliminates data races on `powerAuthSDK` under Swift 6 strict concurrency without requiring an `actor` and an `await` at every call site.
-
-**Navigation**
-A single `NavigationStack` lives at the root (`ContentView`). Each screen drives forward navigation through a `@Published`-equivalent `Bool` property on its view model passed to `navigationDestination(isPresented:)`. Back navigation is disabled on the Activation, Password, and Status screens — the flow is strictly linear.
-
 ---
 
 ## SDK Configuration
