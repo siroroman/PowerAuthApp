@@ -1,21 +1,24 @@
-//
-//  ContentView.swift
-//  PowerAuthApp
-//
-//  Created by Roman Siro on 26.05.2026.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLaunching = true
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            LandingPageView()
+
+            if isLaunching {
+                LaunchScreenView()
+                    .transition(.opacity)
+            }
         }
-        .padding()
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                withAnimation(.easeOut(duration: 0.4)) {
+                    isLaunching = false
+                }
+            }
+        }
     }
 }
 
