@@ -49,12 +49,16 @@ struct ErrorAlert: View {
                         Text("Close")
                             .font(.system(size: 14))
                             .tracking(0.2)
+                            .foregroundColor(Colors.secondaryLabel)
                             .frame(maxWidth: .infinity)
                             .frame(height: 44)
-                            .foregroundColor(Colors.secondaryLabel)
-                            .overlay(
+                            .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .strokeBorder(Colors.secondaryLabel.opacity(0.35), lineWidth: 1)
+                                    .fill(Colors.background)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .strokeBorder(Colors.secondaryLabel, lineWidth: 1)
+                                    )
                             )
                     }
                     .buttonStyle(.plain)
