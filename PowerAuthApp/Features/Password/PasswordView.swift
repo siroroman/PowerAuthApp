@@ -41,7 +41,7 @@ struct PasswordView: View {
 
             if let error = viewModel.error {
                 ErrorAlert(
-                    title: .localized(.errorTitleActivationFailed),
+                    title: .localized(.errorTitlePasswordFailed),
                     message: error.localizedDescription,
                     onDismiss: { viewModel.error = nil }
                 )

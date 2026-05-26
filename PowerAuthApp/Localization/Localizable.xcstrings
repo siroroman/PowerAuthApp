@@ -154,6 +154,23 @@
         }
       }
     },
+    "error.title.password_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavení hesla se nezdařilo"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password setup failed"
+          }
+        }
+      }
+    },
     "error.title.setup_failed" : {
       "extractionState" : "manual",
       "localizations" : {

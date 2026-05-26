@@ -33,6 +33,7 @@ enum AppStringKey: String {
     // MARK: - Error Alerts
     case errorTitleSetupFailed = "error.title.setup_failed"
     case errorTitleActivationFailed = "error.title.activation_failed"
+    case errorTitlePasswordFailed = "error.title.password_failed"
     case errorActionTryAgain = "error.action.try_again"
     case errorActionClose = "error.action.close"
 
