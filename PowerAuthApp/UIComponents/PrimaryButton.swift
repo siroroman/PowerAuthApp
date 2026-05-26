@@ -14,14 +14,14 @@ struct PrimaryButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.system(size: 16, weight: .medium))
+                .font(.system(size: 15, weight: .medium))
                 .tracking(0.2)
                 .frame(maxWidth: .infinity)
                 .frame(height: 56)
-                .foregroundColor(variant == .dark ? .white : Colors.label)
+                .foregroundColor(isDisabled ? Colors.background : (variant == .dark ? .white : Colors.label))
                 .background(
                     RoundedRectangle(cornerRadius: 14)
-                        .fill(variant == .dark ? Colors.label : Color.white)
+                        .fill(isDisabled ? Colors.tertiaryLabel : (variant == .dark ? Colors.label : Color.white))
                         .overlay(
                             RoundedRectangle(cornerRadius: 14)
                                 .strokeBorder(
@@ -33,7 +33,6 @@ struct PrimaryButton: View {
         }
         .buttonStyle(.plain)
         .disabled(isDisabled)
-        .opacity(isDisabled ? 0.4 : 1)
     }
 }
 

@@ -59,15 +59,15 @@ struct InputField: View {
                     SecureField(placeholder, text: $text)
                 }
             }
-            .font(.system(size: 22, weight: .regular))
-            .tracking(4)
+            .font(Fonts.inputSmall)
+            .tracking(2)
             .foregroundColor(Colors.label)
             .padding(.leading, 18)
             .focused($isFocused)
 
         case .code:
             TextField(placeholder, text: $text)
-                .font(.system(size: 22, weight: .medium).monospaced())
+                .font(.system(size: 16, weight: .medium).monospaced())
                 .tracking(3)
                 .foregroundColor(Colors.label)
                 .multilineTextAlignment(.center)

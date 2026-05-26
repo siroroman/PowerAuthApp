@@ -7,6 +7,7 @@ enum Fonts {
     static let stepLabel     = Font.system(size: 11, weight: .medium)
     static let button        = Font.system(size: 16, weight: .medium)
     static let input         = Font.system(size: 17)
+    static let inputSmall    = Font.system(size: 14)
     static let inputLarge    = Font.system(size: 22, weight: .medium)
     static let inputCode     = Font.system(size: 22, weight: .medium).monospaced()
 }

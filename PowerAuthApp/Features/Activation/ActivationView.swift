@@ -19,7 +19,7 @@ struct ActivationView: View {
                     InputField(
                         placeholder: "",
                         text: $viewModel.code,
-                        style: .code
+                        style: .secure
                     )
                     .padding(.top, 40)
                 }
