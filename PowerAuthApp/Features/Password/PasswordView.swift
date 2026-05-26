@@ -11,8 +11,6 @@ struct PasswordView: View {
             Colors.background.ignoresSafeArea()
 
             VStack(spacing: 0) {
-                navigationBar
-
                 VStack(alignment: .leading, spacing: 0) {
                     StepHeader(
                         step: "Step 2 of 3",
@@ -40,20 +38,6 @@ struct PasswordView: View {
                     .padding(.bottom, 32)
             }
         }
-    }
-
-    private var navigationBar: some View {
-        HStack {
-            Button(action: onBack) {
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(Colors.label)
-                    .frame(width: 36, height: 36)
-            }
-            Spacer()
-        }
-        .padding(.horizontal, 24)
-        .padding(.top, 8)
     }
 
     private var passwordRules: some View {
