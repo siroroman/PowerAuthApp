@@ -10,19 +10,19 @@ struct StepHeader: View {
             Text(step.uppercased())
                 .font(.system(size: 11, weight: .medium))
                 .tracking(1.4)
-                .foregroundColor(Theme.faint)
+                .foregroundColor(Colors.tertiaryLabel)
                 .padding(.bottom, 14)
 
             Text(title)
                 .font(.system(size: 28, weight: .medium))
                 .tracking(-0.4)
                 .lineSpacing(4)
-                .foregroundColor(Theme.ink)
+                .foregroundColor(Colors.label)
 
             Text(subtitle)
                 .font(.system(size: 14.5))
                 .lineSpacing(8)
-                .foregroundColor(Theme.muted)
+                .foregroundColor(Colors.secondaryLabel)
                 .padding(.top, 14)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -48,5 +48,5 @@ struct StepHeader: View {
         )
     }
     .padding(32)
-    .background(Theme.background)
+    .background(Colors.background)
 }

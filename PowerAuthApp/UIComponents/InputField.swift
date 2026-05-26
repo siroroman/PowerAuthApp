@@ -17,11 +17,11 @@ struct InputField: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 14)
-                .fill(Theme.field)
+                .fill(Colors.inputBackground)
                 .overlay(
                     RoundedRectangle(cornerRadius: 14)
                         .strokeBorder(
-                            isFocused ? Theme.ink : Theme.hairline,
+                            isFocused ? Colors.label : Colors.separator,
                             lineWidth: 1.5
                         )
                 )
@@ -32,7 +32,7 @@ struct InputField: View {
                     Button(action: { isRevealed.toggle() }) {
                         Image(systemName: isRevealed ? "eye.slash" : "eye")
                             .font(.system(size: 16))
-                            .foregroundColor(Theme.muted)
+                            .foregroundColor(Colors.secondaryLabel)
                     }
                     .padding(.trailing, 18)
                 }
@@ -47,7 +47,7 @@ struct InputField: View {
         case .standard:
             TextField(placeholder, text: $text)
                 .font(.system(size: 17, weight: .regular))
-                .foregroundColor(Theme.ink)
+                .foregroundColor(Colors.label)
                 .padding(.horizontal, 18)
                 .focused($isFocused)
 
@@ -61,7 +61,7 @@ struct InputField: View {
             }
             .font(.system(size: 22, weight: .regular))
             .tracking(4)
-            .foregroundColor(Theme.ink)
+            .foregroundColor(Colors.label)
             .padding(.leading, 18)
             .focused($isFocused)
 
@@ -69,7 +69,7 @@ struct InputField: View {
             TextField(placeholder, text: $text)
                 .font(.system(size: 22, weight: .medium).monospaced())
                 .tracking(3)
-                .foregroundColor(Theme.ink)
+                .foregroundColor(Colors.label)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 18)
                 .focused($isFocused)
@@ -84,5 +84,5 @@ struct InputField: View {
         InputField(placeholder: "XXXX – XXXX – XXXX", text: .constant("4921 – 7K3M –"), style: .code)
     }
     .padding(32)
-    .background(Theme.background)
+    .background(Colors.background)
 }

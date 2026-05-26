@@ -17,14 +17,14 @@ struct PrimaryButton: View {
                 .tracking(0.2)
                 .frame(maxWidth: .infinity)
                 .frame(height: 56)
-                .foregroundColor(variant == .dark ? .white : Theme.ink)
+                .foregroundColor(variant == .dark ? .white : Colors.label)
                 .background(
                     RoundedRectangle(cornerRadius: 14)
-                        .fill(variant == .dark ? Theme.ink : Color.white)
+                        .fill(variant == .dark ? Colors.label : Color.white)
                         .overlay(
                             RoundedRectangle(cornerRadius: 14)
                                 .strokeBorder(
-                                    variant == .ghost ? Theme.hairline : Color.clear,
+                                    variant == .ghost ? Colors.separator : Color.clear,
                                     lineWidth: 1
                                 )
                         )
@@ -40,5 +40,5 @@ struct PrimaryButton: View {
         PrimaryButton(title: "Confirm", variant: .ghost) {}
     }
     .padding(32)
-    .background(Theme.background)
+    .background(Colors.background)
 }
