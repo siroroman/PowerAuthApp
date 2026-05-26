@@ -2,11 +2,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isLaunching = true
+    @State private var landingVM = LandingPageViewModel()
 
     var body: some View {
         ZStack {
             NavigationStack {
-                LandingPageView(viewModel: LandingPageViewModel())
+                LandingPageView(viewModel: landingVM)
             }
 
             if isLaunching {
