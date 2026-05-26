@@ -195,6 +195,9 @@
 			);
 			mainGroup = 908661E12FC5B963000C83A8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				908662242FC5CE7F000C83A8 /* XCRemoteSwiftPackageReference "powerauth-mobile-sdk-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 908661EB2FC5B963000C83A8 /* Products */;
 			projectDirPath = "";
@@ -578,6 +581,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		908662242FC5CE7F000C83A8 /* XCRemoteSwiftPackageReference "powerauth-mobile-sdk-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wultra/powerauth-mobile-sdk-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 908661E22FC5B963000C83A8 /* Project object */;
 }
