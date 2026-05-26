@@ -10,9 +10,9 @@ enum AuthError: Error, LocalizedError, Sendable {
     var errorDescription: String? {
         switch self {
         case .notConfigured: "PowerAuth SDK is not configured"
-        case .activationFailed(let msg): "Activation failed: \(msg)"
-        case .persistFailed(let msg): "Persist failed: \(msg)"
-        case .statusFetchFailed(let msg): "Status fetch failed: \(msg)"
+        case .activationFailed(let msg): msg
+        case .persistFailed(let msg): msg
+        case .statusFetchFailed(let msg): msg
         case .unknown: "An unknown error occurred"
         }
     }
