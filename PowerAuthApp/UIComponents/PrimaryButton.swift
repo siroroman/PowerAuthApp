@@ -8,6 +8,7 @@ enum ButtonVariant {
 struct PrimaryButton: View {
     let title: String
     var variant: ButtonVariant = .dark
+    var isDisabled: Bool = false
     let action: () -> Void
 
     var body: some View {
@@ -31,6 +32,8 @@ struct PrimaryButton: View {
                 )
         }
         .buttonStyle(.plain)
+        .disabled(isDisabled)
+        .opacity(isDisabled ? 0.4 : 1)
     }
 }
 

@@ -12,12 +12,12 @@ struct ActivationView: View {
                     StepHeader(
                         step: "Step 1 of 3",
                         title: "Enter activation\ncode",
-                        subtitle: "Format: XXXX – XXXX – XXXX"
+                        subtitle: "Format: XXXX–XXXX-XXXX-XXXX"
                     )
                     .padding(.top, 48)
 
                     InputField(
-                        placeholder: "XXXX – XXXX – XXXX",
+                        placeholder: "",
                         text: $viewModel.code,
                         style: .code
                     )
@@ -27,14 +27,35 @@ struct ActivationView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Confirm", action: viewModel.onConfirm)
-                    .padding(.horizontal, 32)
-                    .padding(.bottom, 32)
+                PrimaryButton(
+                    title: "Confirm",
+                    isDisabled: viewModel.code.isEmpty,
+                    action: viewModel.confirmTapped
+                )
+                .padding(.horizontal, 32)
+                .padding(.bottom, 32)
             }
+
+            if viewModel.isLoading {
+                LoadingHUD()
+            }
+
+            if let error = viewModel.error {
+                ErrorAlert(
+                    title: "Activation failed",
+                    message: error.localizedDescription,
+                    onDismiss: { viewModel.error = nil }
+                )
+            }
+        }
+        .navigationDestination(isPresented: $viewModel.navigateToPassword) {
+            PasswordView(viewModel: PasswordViewModel(fingerprint: viewModel.fingerprint))
         }
     }
 }
 
 #Preview {
-    ActivationView(viewModel: ActivationViewModel())
+    NavigationStack {
+        ActivationView(viewModel: ActivationViewModel())
+    }
 }
