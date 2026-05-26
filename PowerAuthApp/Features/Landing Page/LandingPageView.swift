@@ -46,10 +46,18 @@ struct LandingPageView: View {
             }
         }
         .navigationDestination(isPresented: $viewModel.navigateToActivation) {
-            ActivationView(viewModel: ActivationViewModel())
+            ActivationView(viewModel: {
+                let vm = ActivationViewModel()
+                vm.onDone = { viewModel.navigateToActivation = false }
+                return vm
+            }())
         }
         .navigationDestination(isPresented: $viewModel.navigateToResult) {
-            ResultView(viewModel: ResultViewModel())
+            ResultView(viewModel: {
+                let vm = ResultViewModel()
+                vm.onDone = { viewModel.navigateToResult = false }
+                return vm
+            }())
         }
     }
 }

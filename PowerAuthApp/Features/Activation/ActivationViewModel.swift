@@ -8,6 +8,7 @@ final class ActivationViewModel {
     var isLoading = false
     var error: AuthError?
     var navigateToPassword = false
+    var onDone: () -> Void = {}
 
     @ObservationIgnored
     @Dependency(\.authService) var authService

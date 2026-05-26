@@ -2,5 +2,9 @@ import Foundation
 
 @Observable
 final class ResultViewModel {
-    var onBack: () -> Void = {}
+    var onDone: () -> Void = {}
+
+    func doneTapped() {
+        onDone()
+    }
 }

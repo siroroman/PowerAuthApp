@@ -19,6 +19,10 @@ struct ResultView: View {
                 .padding(.horizontal, 32)
 
                 Spacer()
+
+                PrimaryButton(title: "Done", action: viewModel.doneTapped)
+                    .padding(.horizontal, 32)
+                    .padding(.bottom, 32)
             }
         }
         .navigationBackDisabled()

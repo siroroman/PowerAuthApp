@@ -48,7 +48,11 @@ struct PasswordView: View {
             }
         }
         .navigationDestination(isPresented: $viewModel.navigateToResult) {
-            ResultView(viewModel: ResultViewModel())
+            ResultView(viewModel: {
+                let vm = ResultViewModel()
+                vm.onDone = viewModel.onDone
+                return vm
+            }())
         }
         .navigationBackDisabled()
     }

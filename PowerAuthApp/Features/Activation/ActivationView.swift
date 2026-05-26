@@ -49,7 +49,11 @@ struct ActivationView: View {
             }
         }
         .navigationDestination(isPresented: $viewModel.navigateToPassword) {
-            PasswordView(viewModel: PasswordViewModel())
+            PasswordView(viewModel: {
+                let vm = PasswordViewModel()
+                vm.onDone = viewModel.onDone
+                return vm
+            }())
         }
         .navigationBackDisabled()
     }

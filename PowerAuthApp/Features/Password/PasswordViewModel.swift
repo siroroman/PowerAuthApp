@@ -8,6 +8,7 @@ final class PasswordViewModel {
     var isLoading = false
     var error: AuthError?
     var navigateToResult = false
+    var onDone: () -> Void = {}
 
     @ObservationIgnored
     @Dependency(\.authService) var authService
