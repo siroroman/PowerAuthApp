@@ -41,11 +41,6 @@
 			path = PowerAuthApp;
 			sourceTree = "<group>";
 		};
-		908661FA2FC5B964000C83A8 /* PowerAuthAppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PowerAuthAppTests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				908661EC2FC5B963000C83A8 /* PowerAuthApp */,
-				908661FA2FC5B964000C83A8 /* PowerAuthAppTests */,
 				908661EB2FC5B963000C83A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,9 +129,6 @@
 			);
 			dependencies = (
 				908661F92FC5B964000C83A8 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				908661FA2FC5B964000C83A8 /* PowerAuthAppTests */,
 			);
 			name = PowerAuthAppTests;
 			packageProductDependencies = (
