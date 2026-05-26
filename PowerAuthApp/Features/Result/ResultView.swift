@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ResultView: View {
-    var onBack: () -> Void = {}
+    @Bindable var viewModel: ResultViewModel
 
     var body: some View {
         ZStack {
@@ -25,5 +25,5 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView()
+    ResultView(viewModel: ResultViewModel())
 }

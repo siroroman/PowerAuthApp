@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LandingPageView: View {
-    var onStart: () -> Void = {}
+    @Bindable var viewModel: LandingPageViewModel
 
     var body: some View {
         ZStack {
@@ -28,7 +28,7 @@ struct LandingPageView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Start activation", action: onStart)
+                PrimaryButton(title: "Start activation", action: viewModel.onStart)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }
@@ -37,5 +37,5 @@ struct LandingPageView: View {
 }
 
 #Preview {
-    LandingPageView()
+    LandingPageView(viewModel: LandingPageViewModel())
 }

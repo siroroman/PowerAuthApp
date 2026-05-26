@@ -1,10 +1,7 @@
 import SwiftUI
 
 struct PasswordView: View {
-    var onBack: () -> Void = {}
-    var onConfirm: () -> Void = {}
-
-    @State private var password = ""
+    @Bindable var viewModel: PasswordViewModel
 
     var body: some View {
         ZStack {
@@ -21,7 +18,7 @@ struct PasswordView: View {
 
                     InputField(
                         placeholder: "Password",
-                        text: $password,
+                        text: $viewModel.password,
                         style: .secure
                     )
                     .padding(.top, 36)
@@ -33,7 +30,7 @@ struct PasswordView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Confirm", action: onConfirm)
+                PrimaryButton(title: "Confirm", action: viewModel.onConfirm)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }
@@ -41,19 +38,14 @@ struct PasswordView: View {
     }
 
     private var passwordRules: some View {
-        let hasMinLength = password.count >= 8
-        let hasUppercase = password.contains(where: \.isUppercase)
-        let hasNumberOrSymbol = password.contains(where: { $0.isNumber || $0.isPunctuation || $0.isSymbol })
-
-        return VStack(alignment: .leading, spacing: 12) {
-            PasswordRuleView(met: hasMinLength, label: "At least 8 characters")
-            PasswordRuleView(met: hasUppercase, label: "One uppercase letter")
-            PasswordRuleView(met: hasNumberOrSymbol, label: "One number or symbol")
+        VStack(alignment: .leading, spacing: 12) {
+            PasswordRuleView(met: viewModel.hasMinLength, label: "At least 8 characters")
+            PasswordRuleView(met: viewModel.hasUppercase, label: "One uppercase letter")
+            PasswordRuleView(met: viewModel.hasNumberOrSymbol, label: "One number or symbol")
         }
     }
 }
 
-
 #Preview {
-    PasswordView()
+    PasswordView(viewModel: PasswordViewModel())
 }

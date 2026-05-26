@@ -5,7 +5,7 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            LandingPageView()
+            LandingPageView(viewModel: LandingPageViewModel())
 
             if isLaunching {
                 LaunchScreenView()

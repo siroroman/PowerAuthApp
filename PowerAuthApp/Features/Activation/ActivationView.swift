@@ -1,10 +1,7 @@
 import SwiftUI
 
 struct ActivationView: View {
-    var onBack: () -> Void = {}
-    var onConfirm: () -> Void = {}
-
-    @State private var code = ""
+    @Bindable var viewModel: ActivationViewModel
 
     var body: some View {
         ZStack {
@@ -21,7 +18,7 @@ struct ActivationView: View {
 
                     InputField(
                         placeholder: "XXXX – XXXX – XXXX",
-                        text: $code,
+                        text: $viewModel.code,
                         style: .code
                     )
                     .padding(.top, 40)
@@ -30,7 +27,7 @@ struct ActivationView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Confirm", action: onConfirm)
+                PrimaryButton(title: "Confirm", action: viewModel.onConfirm)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }
@@ -39,5 +36,5 @@ struct ActivationView: View {
 }
 
 #Preview {
-    ActivationView()
+    ActivationView(viewModel: ActivationViewModel())
 }
