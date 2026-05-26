@@ -29,7 +29,7 @@ struct ActivationView: View {
 
                 PrimaryButton(
                     title: .localized(.activationConfirm),
-                    isDisabled: viewModel.code.isEmpty,
+                    isDisabled: viewModel.code.isEmpty || viewModel.isLoading,
                     action: viewModel.confirmTapped
                 )
                 .padding(.horizontal, 32)
