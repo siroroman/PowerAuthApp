@@ -1,3 +1,4 @@
+import Dependencies
 import Observation
 import PowerAuth2
 
@@ -71,5 +72,16 @@ final class AuthService: AuthServiceProtocol {
         case .deadlock:     return .deadlock
         @unknown default:   return .unknown
         }
+    }
+}
+
+extension AuthService: DependencyKey {
+    static let liveValue = AuthService()
+}
+
+extension DependencyValues {
+    var authService: AuthService {
+        get { self[AuthService.self] }
+        set { self[AuthService.self] = newValue }
     }
 }
