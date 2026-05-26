@@ -67,6 +67,9 @@ struct InputField: View {
             .foregroundColor(Colors.label)
             .padding(.leading, 18)
             .focused($isFocused)
+            .autocorrectionDisabled()
+            .textInputAutocapitalization(.never)
+            .keyboardType(.asciiCapable)
 
         case .code:
             TextField(placeholder, text: $text)
@@ -76,6 +79,9 @@ struct InputField: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 18)
                 .focused($isFocused)
+                .autocorrectionDisabled()
+                .textInputAutocapitalization(.characters)
+                .keyboardType(.asciiCapable)
         }
     }
 }
