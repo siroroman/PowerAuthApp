@@ -21,6 +21,7 @@ struct ResultView: View {
                 Spacer()
             }
         }
+        .navigationBackDisabled()
     }
 }
 

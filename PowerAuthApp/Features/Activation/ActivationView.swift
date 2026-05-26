@@ -51,6 +51,7 @@ struct ActivationView: View {
         .navigationDestination(isPresented: $viewModel.navigateToPassword) {
             PasswordView(viewModel: PasswordViewModel(fingerprint: viewModel.fingerprint))
         }
+        .navigationBackDisabled()
     }
 }
 

@@ -35,6 +35,7 @@ struct PasswordView: View {
                     .padding(.bottom, 32)
             }
         }
+        .navigationBackDisabled()
     }
 
     private var passwordRules: some View {
