@@ -23,16 +23,14 @@ final class AuthService: AuthServiceProtocol {
         powerAuthSDK = PowerAuthSDK(configuration: config)
     }
 
-    func createActivation(with code: String) async throws -> String {
+    func createActivation(with code: String) async throws {
         guard let sdk = powerAuthSDK else { throw AuthError.notConfigured }
-        return try await withCheckedThrowingContinuation { continuation in
-            sdk.createActivation(withName: "PowerAuthApp", activationCode: code) { result, error in
+        try await withCheckedThrowingContinuation { continuation in
+            sdk.createActivation(withName: "PowerAuthApp", activationCode: code) { _, error in
                 if let error {
                     continuation.resume(throwing: AuthError.activationFailed(error.localizedDescription))
-                } else if let fingerprint = result?.activationFingerprint {
-                    continuation.resume(returning: fingerprint)
                 } else {
-                    continuation.resume(throwing: AuthError.unknown)
+                    continuation.resume()
                 }
             }
         }

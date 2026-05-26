@@ -8,7 +8,6 @@ final class ActivationViewModel {
     var isLoading = false
     var error: AuthError?
     var navigateToPassword = false
-    private(set) var fingerprint: String = ""
 
     @ObservationIgnored
     @Dependency(\.authService) var authService
@@ -18,7 +17,7 @@ final class ActivationViewModel {
             isLoading = true
             defer { isLoading = false }
             do {
-                fingerprint = try await authService.createActivation(with: code)
+                try await authService.createActivation(with: code)
                 navigateToPassword = true
             } catch let authError as AuthError {
                 error = authError
