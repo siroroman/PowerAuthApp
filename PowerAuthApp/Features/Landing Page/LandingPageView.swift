@@ -48,6 +48,9 @@ struct LandingPageView: View {
         .navigationDestination(isPresented: $viewModel.navigateToActivation) {
             ActivationView(viewModel: ActivationViewModel())
         }
+        .navigationDestination(isPresented: $viewModel.navigateToResult) {
+            ResultView(viewModel: ResultViewModel())
+        }
     }
 }
 
