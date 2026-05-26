@@ -25,7 +25,7 @@ final class AuthService: AuthServiceProtocol {
 
     func createActivation(with code: String) async throws {
         guard let sdk = powerAuthSDK else { throw AuthError.notConfigured }
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             sdk.createActivation(withName: "PowerAuthApp", activationCode: code) { _, error in
                 if let error {
                     continuation.resume(throwing: AuthError.activationFailed(error.localizedDescription))
