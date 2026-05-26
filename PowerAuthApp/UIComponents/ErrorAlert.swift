@@ -4,7 +4,7 @@ struct ErrorAlert: View {
     let title: String
     let message: String
     var primaryLabel: String = "Try again"
-    var onPrimary: () -> Void = {}
+    var onPrimary: (() -> Void)? = nil
     var onDismiss: () -> Void = {}
 
     var body: some View {
@@ -32,24 +32,30 @@ struct ErrorAlert: View {
                     .padding(.bottom, 22)
 
                 VStack(spacing: 8) {
-                    Button(action: onPrimary) {
-                        Text(primaryLabel)
-                            .font(.system(size: 15, weight: .medium))
-                            .tracking(0.2)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 48)
-                            .foregroundColor(.white)
-                            .background(RoundedRectangle(cornerRadius: 12).fill(Colors.label))
+                    if let onPrimary {
+                        Button(action: onPrimary) {
+                            Text(primaryLabel)
+                                .font(.system(size: 15, weight: .medium))
+                                .tracking(0.2)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 48)
+                                .foregroundColor(.white)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Colors.label))
+                        }
+                        .buttonStyle(.plain)
                     }
-                    .buttonStyle(.plain)
 
                     Button(action: onDismiss) {
-                        Text("Dismiss")
+                        Text("Close")
                             .font(.system(size: 14))
                             .tracking(0.2)
                             .frame(maxWidth: .infinity)
                             .frame(height: 44)
                             .foregroundColor(Colors.secondaryLabel)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .strokeBorder(Colors.secondaryLabel.opacity(0.35), lineWidth: 1)
+                            )
                     }
                     .buttonStyle(.plain)
                 }

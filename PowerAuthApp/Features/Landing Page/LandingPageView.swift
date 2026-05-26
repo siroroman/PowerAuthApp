@@ -41,7 +41,6 @@ struct LandingPageView: View {
                 ErrorAlert(
                     title: "Setup failed",
                     message: error.localizedDescription,
-                    onPrimary: { viewModel.error = nil },
                     onDismiss: { viewModel.error = nil }
                 )
             }
