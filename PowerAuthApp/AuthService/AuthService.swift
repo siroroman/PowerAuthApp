@@ -1,8 +1,7 @@
 import Dependencies
-import Observation
 import PowerAuth2
 
-@Observable
+@MainActor
 final class AuthService: AuthServiceProtocol {
 
     private var powerAuthSDK: PowerAuthSDK?
