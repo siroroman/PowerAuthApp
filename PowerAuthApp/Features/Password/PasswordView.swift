@@ -30,7 +30,7 @@ struct PasswordView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Confirm", action: viewModel.onConfirm)
+                PrimaryButton(title: "Confirm", isDisabled: !viewModel.isValid, action: viewModel.onConfirm)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }
