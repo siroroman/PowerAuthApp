@@ -11,6 +11,7 @@ final class AuthService: AuthServiceProtocol {
     var hasValidActivation: Bool { powerAuthSDK?.hasValidActivation() ?? false }
 
     func configure() throws {
+        guard powerAuthSDK == nil else { return }
         let config = PowerAuthConfiguration(
             instanceId: PowerAuthConfig.instanceId,
             baseEndpointUrl: PowerAuthConfig.baseEndpointUrl,
