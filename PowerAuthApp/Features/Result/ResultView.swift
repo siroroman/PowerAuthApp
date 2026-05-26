@@ -10,9 +10,9 @@ struct ResultView: View {
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
                     StepHeader(
-                        step: "Step 3 of 3",
-                        title: "Status: Active",
-                        subtitle: "Activation complete. Your device is ready."
+                        step: .localized(.resultStep),
+                        title: .localized(.resultTitle),
+                        subtitle: .localized(.resultSubtitle)
                     )
                     .padding(.top, 48)
                 }
@@ -20,7 +20,7 @@ struct ResultView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Done", action: viewModel.doneTapped)
+                PrimaryButton(title: .localized(.resultDone), action: viewModel.doneTapped)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }

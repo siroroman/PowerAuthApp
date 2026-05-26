@@ -9,7 +9,7 @@ struct LaunchScreenView: View {
 
             VStack {
                 Spacer()
-                Text("Secure Activation")
+                Text(.launchTagline)
                     .font(.system(size: 10, weight: .medium))
                     .tracking(2)
                     .textCase(.uppercase)

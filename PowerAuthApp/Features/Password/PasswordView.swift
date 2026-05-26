@@ -10,14 +10,14 @@ struct PasswordView: View {
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
                     StepHeader(
-                        step: "Step 2 of 3",
-                        title: "Set a password",
-                        subtitle: "You'll use this to sign in from now on."
+                        step: .localized(.passwordStep),
+                        title: .localized(.passwordTitle),
+                        subtitle: .localized(.passwordSubtitle)
                     )
                     .padding(.top, 48)
 
                     InputField(
-                        placeholder: "Password",
+                        placeholder: .localized(.passwordPlaceholder),
                         text: $viewModel.password,
                         style: .secure
                     )
@@ -30,7 +30,7 @@ struct PasswordView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Confirm", isDisabled: !viewModel.isValid, action: viewModel.confirmTapped)
+                PrimaryButton(title: .localized(.passwordConfirm), isDisabled: !viewModel.isValid, action: viewModel.confirmTapped)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }
@@ -41,7 +41,7 @@ struct PasswordView: View {
 
             if let error = viewModel.error {
                 ErrorAlert(
-                    title: "Activation failed",
+                    title: .localized(.errorTitleActivationFailed),
                     message: error.localizedDescription,
                     onDismiss: { viewModel.error = nil }
                 )
@@ -59,9 +59,9 @@ struct PasswordView: View {
 
     private var passwordRules: some View {
         VStack(alignment: .leading, spacing: 12) {
-            PasswordRuleView(met: viewModel.hasMinLength, label: "At least 8 characters")
-            PasswordRuleView(met: viewModel.hasUppercase, label: "One uppercase letter")
-            PasswordRuleView(met: viewModel.hasNumberOrSymbol, label: "One number or symbol")
+            PasswordRuleView(met: viewModel.hasMinLength, label: .localized(.passwordRuleLength))
+            PasswordRuleView(met: viewModel.hasUppercase, label: .localized(.passwordRuleUppercase))
+            PasswordRuleView(met: viewModel.hasNumberOrSymbol, label: .localized(.passwordRuleSymbol))
         }
     }
 }

@@ -10,9 +10,9 @@ struct ActivationView: View {
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
                     StepHeader(
-                        step: "Step 1 of 3",
-                        title: "Enter activation\ncode",
-                        subtitle: "Format: XXXX–XXXX-XXXX-XXXX"
+                        step: .localized(.activationStep),
+                        title: .localized(.activationTitle),
+                        subtitle: .localized(.activationSubtitle)
                     )
                     .padding(.top, 48)
 
@@ -28,7 +28,7 @@ struct ActivationView: View {
                 Spacer()
 
                 PrimaryButton(
-                    title: "Confirm",
+                    title: .localized(.activationConfirm),
                     isDisabled: viewModel.code.isEmpty,
                     action: viewModel.confirmTapped
                 )
@@ -42,7 +42,7 @@ struct ActivationView: View {
 
             if let error = viewModel.error {
                 ErrorAlert(
-                    title: "Activation failed",
+                    title: .localized(.errorTitleActivationFailed),
                     message: error.localizedDescription,
                     onDismiss: { viewModel.error = nil }
                 )

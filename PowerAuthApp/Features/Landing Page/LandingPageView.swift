@@ -11,13 +11,13 @@ struct LandingPageView: View {
                 Spacer()
 
                 VStack(spacing: 0) {
-                    Text("Activate your\ndevice.")
+                    Text(.landingTitle)
                         .font(Fonts.hero)
                         .tracking(-0.6)
                         .multilineTextAlignment(.center)
                         .foregroundColor(Colors.label)
 
-                    Text("You'll need the activation code we sent to your registered email — takes about a minute.")
+                    Text(.landingSubtitle)
                         .font(.system(size: 15))
                         .lineSpacing(8)
                         .multilineTextAlignment(.center)
@@ -28,7 +28,7 @@ struct LandingPageView: View {
 
                 Spacer()
 
-                PrimaryButton(title: "Start activation", action: viewModel.startTapped)
+                PrimaryButton(title: .localized(.landingCTA), action: viewModel.startTapped)
                     .padding(.horizontal, 32)
                     .padding(.bottom, 32)
             }
@@ -39,7 +39,7 @@ struct LandingPageView: View {
 
             if let error = viewModel.error {
                 ErrorAlert(
-                    title: "Setup failed",
+                    title: .localized(.errorTitleSetupFailed),
                     message: error.localizedDescription,
                     onDismiss: { viewModel.error = nil }
                 )
