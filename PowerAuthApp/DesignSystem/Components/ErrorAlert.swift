@@ -21,14 +21,14 @@ struct ErrorAlert: View {
                     .font(.system(size: 18, weight: .medium))
                     .tracking(-0.2)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Colors.label)
+                    .foregroundStyle(Colors.label)
                     .padding(.bottom, 8)
 
                 Text(message)
                     .font(.system(size: 14))
                     .lineSpacing(7)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Colors.secondaryLabel)
+                    .foregroundStyle(Colors.secondaryLabel)
                     .padding(.bottom, 22)
 
                 VStack(spacing: 8) {
@@ -39,7 +39,7 @@ struct ErrorAlert: View {
                                 .tracking(0.2)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 48)
-                                .foregroundColor(.white)
+                                .foregroundStyle(.white)
                                 .background(RoundedRectangle(cornerRadius: 12).fill(Colors.label))
                         }
                         .buttonStyle(.plain)
@@ -49,16 +49,13 @@ struct ErrorAlert: View {
                         Text(.errorActionClose)
                             .font(.system(size: 14))
                             .tracking(0.2)
-                            .foregroundColor(Colors.secondaryLabel)
+                            .foregroundStyle(Colors.secondaryLabel)
                             .frame(maxWidth: .infinity)
                             .frame(height: 44)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(Colors.background)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .strokeBorder(Colors.secondaryLabel, lineWidth: 1)
-                                    )
+                                    .stroke(Colors.secondaryLabel, lineWidth: 1)
                             )
                     }
                     .buttonStyle(.plain)
@@ -70,11 +67,8 @@ struct ErrorAlert: View {
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Colors.background)
+                    .stroke(.black.opacity(0.04), lineWidth: 1)
                     .shadow(color: .black.opacity(0.22), radius: 32, x: 0, y: 24)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .strokeBorder(.black.opacity(0.04), lineWidth: 1)
-                    )
             )
             .padding(.horizontal, 32)
         }

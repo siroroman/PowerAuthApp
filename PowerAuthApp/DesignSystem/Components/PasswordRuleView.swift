@@ -13,7 +13,7 @@ struct PasswordRuleView: View {
                 if met {
                     Image(systemName: "checkmark")
                         .font(.system(size: 8, weight: .bold))
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                 } else {
                     Circle()
                         .strokeBorder(Colors.separator, lineWidth: 1)
@@ -22,7 +22,7 @@ struct PasswordRuleView: View {
             }
             Text(label)
                 .font(.system(size: 13))
-                .foregroundColor(met ? Colors.label : Colors.secondaryLabel)
+                .foregroundStyle(met ? Colors.label : Colors.secondaryLabel)
         }
     }
 }

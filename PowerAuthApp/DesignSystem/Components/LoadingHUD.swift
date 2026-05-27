@@ -17,18 +17,15 @@ struct LoadingHUD: View {
                 if let message {
                     Text(message)
                         .font(Fonts.body)
-                        .foregroundColor(Colors.label)
+                        .foregroundStyle(Colors.label)
                 }
             }
             .padding(28)
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Colors.background)
+                    .stroke(.black.opacity(0.04), lineWidth: 1)
                     .shadow(color: .black.opacity(0.22), radius: 32, x: 0, y: 24)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .strokeBorder(.black.opacity(0.04), lineWidth: 1)
-                    )
             )
         }
     }

@@ -15,13 +15,13 @@ struct LandingPageView: View {
                         .font(Fonts.hero)
                         .tracking(-0.6)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(Colors.label)
+                        .foregroundStyle(Colors.label)
 
                     Text(.landingSubtitle)
                         .font(.system(size: 15))
                         .lineSpacing(8)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(Colors.secondaryLabel)
+                        .foregroundStyle(Colors.secondaryLabel)
                         .padding(.top, 18)
                         .padding(.horizontal, 16)
                 }

@@ -16,7 +16,7 @@ struct LaunchScreenView: View {
                     .font(.system(size: 10, weight: .medium))
                     .tracking(2)
                     .textCase(.uppercase)
-                    .foregroundColor(Colors.tertiaryLabel)
+                    .foregroundStyle(Colors.tertiaryLabel)
                     .padding(.bottom, 56)
             }
         }

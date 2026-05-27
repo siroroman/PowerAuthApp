@@ -73,12 +73,13 @@ final class AuthService: AuthServiceProtocol {
 }
 
 extension AuthService: DependencyKey {
-    static let liveValue = AuthService()
+    typealias Value = any AuthServiceProtocol
+    static let liveValue: any AuthServiceProtocol = AuthService()
 }
 
 extension DependencyValues {
     var authService: any AuthServiceProtocol {
         get { self[AuthService.self] }
-        set { self[AuthService.self] = newValue as! AuthService }
+        set { self[AuthService.self] = newValue }
     }
 }

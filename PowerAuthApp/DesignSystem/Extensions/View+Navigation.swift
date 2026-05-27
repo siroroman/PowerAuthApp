@@ -14,8 +14,6 @@ private struct SwipeBackDisabler: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        DispatchQueue.main.async {
-            uiViewController.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        }
+        uiViewController.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 }

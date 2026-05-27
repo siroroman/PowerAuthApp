@@ -18,13 +18,7 @@ struct InputField: View {
         ZStack {
             RoundedRectangle(cornerRadius: 14)
                 .fill(Colors.inputBackground)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 14)
-                        .strokeBorder(
-                            isFocused ? Colors.label : Colors.separator,
-                            lineWidth: 1.5
-                        )
-                )
+                .stroke(isFocused ? Colors.label : Colors.separator, lineWidth: 1.5)
 
             HStack(spacing: 0) {
                 inputField
@@ -35,7 +29,7 @@ struct InputField: View {
                     }) {
                         Image(systemName: isRevealed ? "eye.slash" : "eye")
                             .font(.system(size: 16))
-                            .foregroundColor(Colors.secondaryLabel)
+                            .foregroundStyle(Colors.secondaryLabel)
                     }
                     .padding(.trailing, 18)
                 }
@@ -50,7 +44,7 @@ struct InputField: View {
         case .standard:
             TextField(placeholder, text: $text)
                 .font(.system(size: 17, weight: .regular))
-                .foregroundColor(Colors.label)
+                .foregroundStyle(Colors.label)
                 .padding(.horizontal, 18)
                 .focused($isFocused)
 
@@ -64,7 +58,7 @@ struct InputField: View {
             }
             .font(Fonts.inputSmall)
             .tracking(2)
-            .foregroundColor(Colors.label)
+            .foregroundStyle(Colors.label)
             .padding(.leading, 18)
             .focused($isFocused)
             .autocorrectionDisabled()
@@ -75,7 +69,7 @@ struct InputField: View {
             TextField(placeholder, text: $text)
                 .font(.system(size: 16, weight: .medium).monospaced())
                 .tracking(3)
-                .foregroundColor(Colors.label)
+                .foregroundStyle(Colors.label)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 18)
                 .focused($isFocused)

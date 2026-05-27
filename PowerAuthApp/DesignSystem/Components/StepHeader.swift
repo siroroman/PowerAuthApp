@@ -10,19 +10,19 @@ struct StepHeader: View {
             Text(step.uppercased())
                 .font(.system(size: 11, weight: .medium))
                 .tracking(1.4)
-                .foregroundColor(Colors.tertiaryLabel)
+                .foregroundStyle(Colors.tertiaryLabel)
                 .padding(.bottom, 14)
 
             Text(title)
                 .font(.system(size: 28, weight: .medium))
                 .tracking(-0.4)
                 .lineSpacing(4)
-                .foregroundColor(Colors.label)
+                .foregroundStyle(Colors.label)
 
             Text(subtitle)
                 .font(.system(size: 14.5))
                 .lineSpacing(8)
-                .foregroundColor(Colors.secondaryLabel)
+                .foregroundStyle(Colors.secondaryLabel)
                 .padding(.top, 14)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
