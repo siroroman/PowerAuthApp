@@ -14,7 +14,7 @@ final class ActivationViewModel {
     @Dependency(\.authService) var authService
 
     func confirmTapped() {
-        Task { @MainActor in
+        Task {
             isLoading = true
             defer { isLoading = false }
             do {

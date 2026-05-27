@@ -31,7 +31,7 @@ final class PasswordViewModel {
     }
 
     func confirmTapped() {
-        Task { @MainActor in
+        Task {
             isLoading = true
             defer { isLoading = false }
             do {

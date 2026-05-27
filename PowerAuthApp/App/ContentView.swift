@@ -15,11 +15,10 @@ struct ContentView: View {
                     .transition(.opacity)
             }
         }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                withAnimation(.easeOut(duration: 0.4)) {
-                    isLaunching = false
-                }
+        .task {
+            try? await Task.sleep(for: .seconds(1.5))
+            withAnimation(.easeOut(duration: 0.4)) {
+                isLaunching = false
             }
         }
     }

@@ -13,7 +13,7 @@ final class LandingPageViewModel {
     @Dependency(\.authService) var authService
 
     func startTapped() {
-        Task { @MainActor in
+        Task {
             isLoading = true
             defer { isLoading = false }
             do {

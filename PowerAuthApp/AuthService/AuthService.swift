@@ -1,7 +1,6 @@
 import Dependencies
 import PowerAuth2
 
-@MainActor
 final class AuthService: AuthServiceProtocol {
 
     private var powerAuthSDK: PowerAuthSDK?
@@ -78,8 +77,8 @@ extension AuthService: DependencyKey {
 }
 
 extension DependencyValues {
-    var authService: AuthService {
+    var authService: any AuthServiceProtocol {
         get { self[AuthService.self] }
-        set { self[AuthService.self] = newValue }
+        set { self[AuthService.self] = newValue as! AuthService }
     }
 }

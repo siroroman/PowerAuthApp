@@ -1,3 +1,4 @@
+@MainActor
 protocol AuthServiceProtocol: AnyObject {
     var isConfigured: Bool { get }
     var hasValidActivation: Bool { get }
