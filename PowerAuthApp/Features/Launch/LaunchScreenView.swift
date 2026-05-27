@@ -5,7 +5,10 @@ struct LaunchScreenView: View {
         ZStack {
             Colors.background.ignoresSafeArea()
 
-            KeyIconView(size: 160)
+            Image("AppIconImage")
+                .resizable()
+                .frame(width: 160, height: 160)
+                .clipShape(RoundedRectangle(cornerRadius: 36, style: .continuous))
 
             VStack {
                 Spacer()
