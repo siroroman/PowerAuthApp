@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @State private var isLaunching = true
     @State private var landingVM = LandingPageViewModel()
 
@@ -13,6 +14,10 @@ struct ContentView: View {
             if isLaunching {
                 LaunchScreenView()
                     .transition(.opacity)
+            }
+
+            if scenePhase != .active {
+                LaunchScreenView()
             }
         }
         .task {

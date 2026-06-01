@@ -11,6 +11,7 @@ struct InputField: View {
     @Binding var text: String
     var style: FieldStyle = .standard
 
+    @Environment(\.scenePhase) private var scenePhase
     @FocusState private var isFocused: Bool
     @State private var isRevealed = false
 
@@ -36,6 +37,11 @@ struct InputField: View {
             }
         }
         .frame(height: style == .code ? 64 : 60)
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase != .active {
+                isRevealed = false
+            }
+        }
     }
 
     @ViewBuilder
