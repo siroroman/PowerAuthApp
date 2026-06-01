@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		908661EA2FC5B963000C83A8 /* PowerAuthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerAuthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-908662012FC5B964000C83A8 /* PowerAuthAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerAuthAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		908662012FC5B964000C83A8 /* PowerAuthAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerAuthAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -470,7 +470,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wultra/powerauth-mobile-sdk-spm.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 1.9.6;
 			};
 		};
