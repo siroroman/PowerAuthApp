@@ -19,6 +19,7 @@ final class ActivationViewModel {
             defer { isLoading = false }
             do {
                 try await authService.createActivation(with: code)
+                code = ""
                 navigateToPassword = true
             } catch let authError as AuthError {
                 error = authError

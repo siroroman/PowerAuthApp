@@ -36,6 +36,7 @@ final class PasswordViewModel {
             defer { isLoading = false }
             do {
                 try authService.persistActivation(with: password)
+                password = ""
                 let status = try await fetchStatusWithRetry()
                 if status == .active {
                     navigateToResult = true
